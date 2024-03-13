@@ -31,6 +31,6 @@ client.on("message", (channel, tags, message, self) => {
         };
 
         const lottoNumbers = getLottoNumbers();
-        client.say(channel, `@${tags.username} 🎰樂透預測：${lottoNumbers.join(', ')}，祝您中大獎！🔥`);
+        client.say(channel, `@${tags.username} 樂透預測：${lottoNumbers.join(', ')}，祝您中大獎！🎰`);
     }
 });

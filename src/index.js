@@ -15,7 +15,9 @@ client.connect();
 client.on("message", (channel, tags, message, self) => {
     if (self) return;
 
-    if (message.toLowerCase() === '!樂透') {
+    if (message.toLowerCase() === '!指令') {
+        client.say(channel, `目前指令：!樂透 !骰 !運勢 !dc !ffz !bgm，剩下自己猜~`);
+    } else if (message.toLowerCase() === '!樂透') {
         const getLottoNumbers = () => {
             const numbers = new Set();
             // 隨機選擇六個不重複的號碼

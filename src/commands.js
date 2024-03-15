@@ -14,6 +14,10 @@ const commands = {
     '安安': sayHello,
 };
 
+function sayHello() {
+    return "噗噗安安 shushu23Hi";
+}
+
 function getLottoNumbers() {
     const numbers = new Set();
     while (numbers.size < 6) {
@@ -39,17 +43,12 @@ function getFortune() {
             "🔥 大凶",
         ];
     const result = strawList[Math.floor(Math.random() * strawList.length)];
-    console.log(result)
     return `今日運勢：${result}`;
 }
 
-function getSong() {
-    console.log('點歌指令');
-    return 
-}
-
-function sayHello() {
-    return "噗噗安安 shushu23Hi";
+async function getSong(songName) {
+    console.log('點歌指令：' + songName);
+    return `點歌指令已接收：${songName}`;
 }
 
 module.exports = commands;

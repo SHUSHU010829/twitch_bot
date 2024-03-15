@@ -18,11 +18,11 @@ client.connect();
 client.on("message", (channel, tags, message, self) => {
     if (self) return;
 
-    const command = message.toLowerCase();
-    const response = commands[command];
+    const [command, ...params] = message.split(' ');
+    const response = commands[command.toLowerCase()];
 
     if (typeof response === 'function') {
-        client.say(channel, `@${tags.username} ${response()}`);
+        client.say(channel, `@${tags.username} ${response(params.join(' '))}`);
     } else if (response) {
         client.say(channel, response);
     }

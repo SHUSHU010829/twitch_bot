@@ -1,4 +1,5 @@
 const tmi = require("tmi.js");
+const connectToMongoDB = require("./utils/connectMongo");
 require("dotenv").config();
 
 const client = new tmi.Client({
@@ -9,6 +10,8 @@ const client = new tmi.Client({
     },
     channels: ["shushu010829"],
 });
+
+connectToMongoDB();
 
 client.connect();
 

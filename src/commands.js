@@ -34,8 +34,7 @@ function getLottoNumbers() {
 
 function getDice() {
     const dice = Math.floor(Math.random() * 6) + 1;
-    const emoji = dice === 1 ? '🎲' : dice === 2 ? '⚀' : dice === 3 ? '⚁' : dice === 4 ? '⚂' : dice === 5 ? '⚃' : '⚄';
-    return `骰到${dice}點 ${emoji}`;
+    return `骰到${dice}點`;
 }
 
 function getFortune() {

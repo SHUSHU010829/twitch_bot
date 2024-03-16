@@ -5,7 +5,6 @@ const commands = {
     '!運勢': getFortune,
     '!點歌': getSong,
     '!請問': '問就是下次一定！',
-    '!退訂': '別對我說再見一句再見讓愛變得表面 ~ 🎵 真的不用說再見就算再見結局不能改變 ~ 🎶',
     '!bgm':'Background Music Made by Hunter Milo. > https://youtu.be/ewywwZe7cDI?si=HP1qpQicjPB2djN_',
     '!開台': '幾乎天天都會小開一下，平日時段看我下班時間，假日大概都是中午開台除非我睡死 # 佛系開台！如果有請假會在我的 DC 群告知 ~',
     '!ffz':'在線上應用程式插件下載 FrankerFaceZ：https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb?hl=zh-TW，進 FFZ 設定 Add-Ons 把 7tv 打開就能看到啦！',

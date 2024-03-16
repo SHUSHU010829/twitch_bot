@@ -13,8 +13,8 @@ const commands = {
     '早安': '早安！晚安！友露安！ Evilowo',
     'ㄤㄤ': 'ㄤ什麼ㄤ！好好打字！ mindyouFroge',
     '副歌': '我就是副歌超人！ 其它都不會 OkaygeClap',
-    '嗆': '哪有倫家最溫柔了~~~~ shushu23HiLove',
-    '派': '哪有倫家最溫柔了~~~~ shushu23HiLove',
+    '嗆': '哪有倫家最溫柔了~~~~ shushu23Love',
+    '派': '哪有倫家最溫柔了~~~~ shushu23Love',
     '安安': sayHello,
 };
 

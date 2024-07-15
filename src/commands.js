@@ -1,5 +1,5 @@
 const commands = {
-  "!指令": "目前指令：!樂透 !骰 !運勢 !dc !ffz !bgm，剩下自己猜~",
+  "!指令": "目前指令：!樂透 !骰 !運勢 !點歌 !dc !ffz !bgm",
   "!樂透": getLottoNumbers,
   "!骰": getDice,
   "!運勢": getFortune,
@@ -14,16 +14,12 @@ const commands = {
   "?": "shushu23What",
   老: "我才不老，我三歲！ FrogeMad",
   早安: "早安！晚安！友露安！ Evilowo",
+  安安: "噗噗安安 shushu23Hi",
   ㄤㄤ: "ㄤ什麼ㄤ！好好打字！ mindyouFroge",
-  副歌: "我就是副歌超人！ 其它都不會 OkaygeClap",
-  嗆: "哪有倫家最溫柔了~~~~ shushu23Love",
-  派: "哪有倫家最溫柔了~~~~ shushu23Love",
-  安安: sayHello,
+  副歌: "我就是副歌超人！ OkaygeClap",
+  嗆: "哪有倫家最溫柔了~~~ shushu23Love",
+  派: "哪有倫家最溫柔了~~~ shushu23Love",
 };
-
-function sayHello() {
-  return "噗噗安安 shushu23Hi";
-}
 
 function getLottoNumbers() {
   const numbers = new Set();
@@ -53,9 +49,17 @@ function getFortune() {
 }
 
 async function getSong(songName) {
-  console.log("點歌指令：" + songName);
-  //   return `點歌指令已接收：${songName}`;
-  return "下次一定！";
+  const response = await fetch("https://shustream.zeabur.app/songList/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title: songName }),
+  });
+
+  if (response.status === 201) {
+    return `已添加 ${songName} 進去播放清單囉！`;
+  }
 }
 
 module.exports = commands;

@@ -13,7 +13,8 @@ const client = new tmi.Client({
 
 client.connect();
 client.on("message", (channel, tags, message, self) => {
-  console.log("🚀 ~ client.on ~ tags:", tags); // subscriber === true
+  // console.log("🚀 ~ client.on ~ tags:", tags);
+  // subscriber === true
   if (self) return;
 
   const [command, ...params] = message.split(" ");

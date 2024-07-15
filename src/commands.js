@@ -45,7 +45,7 @@ async function addOrderSong(songName) {
 async function orderSong(songName) {
   const result = await addOrderSong(songName);
   if (result.status === 201) {
-    return `點歌成功！[${songName}] 已經在點播清單中！但不一定會唱！`;
+    return `[${songName}] 點歌成功！但不一定會唱！`;
   }
   return `下次一定！`;
 }

@@ -3,7 +3,7 @@ const commands = {
   "!樂透": getLottoNumbers,
   "!骰": getDice,
   "!運勢": getFortune,
-  "!點歌": getSong,
+  "!點歌": getSongHandler,
   "!請問": "問就是下次一定！",
   "!bgm":
     "Background Music Made by Hunter Milo. > https://youtu.be/ewywwZe7cDI?si=HP1qpQicjPB2djN_",
@@ -58,8 +58,14 @@ async function getSong(songName) {
   });
 
   if (response.status === 201) {
-    return `已添加 ${songName} 進去播放清單囉！`;
+    return `已收到你的點歌訊息：${songName}`;
   }
+  return `點歌失敗 :P`;
+}
+
+async function getSongHandler(songName) {
+  const result = await getSong(songName);
+  return result;
 }
 
 module.exports = commands;

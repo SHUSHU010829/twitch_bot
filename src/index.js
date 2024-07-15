@@ -21,7 +21,19 @@ client.on("message", (channel, tags, message, self) => {
   const response = commands[command.toLowerCase()];
 
   if (typeof response === "function") {
-    client.say(channel, `@${tags.username} ${response(params.join(" "))}`);
+    const result = response(params.join(" "));
+    if (result instanceof Promise) {
+      result
+        .then((reply) => {
+          client.say(channel, `@${tags.username} ${reply}`);
+        })
+        .catch((err) => {
+          console.error(err);
+          client.say(channel, `@${tags.username} 發生錯誤，請稍後再試`);
+        });
+    } else {
+      client.say(channel, `@${tags.username} ${result}`);
+    }
   } else if (response) {
     client.say(channel, response);
   }

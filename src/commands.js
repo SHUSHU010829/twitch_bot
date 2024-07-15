@@ -3,7 +3,7 @@ const commands = {
   "!樂透": getLottoNumbers,
   "!骰": getDice,
   "!運勢": getFortune,
-  "!點歌": getSongHandler,
+  "!點歌": orderSong,
   "!請問": "問就是下次一定！",
   "!bgm":
     "Background Music Made by Hunter Milo. > https://youtu.be/ewywwZe7cDI?si=HP1qpQicjPB2djN_",
@@ -30,6 +30,26 @@ function getLottoNumbers() {
   return `樂透預測：${sortedNumbers.join(", ")}，祝您中大獎！🎰`;
 }
 
+async function addOrderSong(songName) {
+  const response = await fetch("https://shustream.zeabur.app/songList/order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ title: songName }),
+  });
+
+  return response;
+}
+
+async function orderSong(songName) {
+  const result = await addOrderSong(songName);
+  if (result.status === 201) {
+    return `點歌成功！[${songName}] 已經在點播清單中！但不一定會唱！`;
+  }
+  return `下次一定！`;
+}
+
 function getDice() {
   const dice = Math.floor(Math.random() * 6) + 1;
   return `骰到${dice}點`;
@@ -47,25 +67,4 @@ function getFortune() {
   const result = strawList[Math.floor(Math.random() * strawList.length)];
   return `今日運勢：${result}`;
 }
-
-async function getSong(songName) {
-  const response = await fetch("https://shustream.zeabur.app/songList/order", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ title: songName }),
-  });
-
-  if (response.status === 201) {
-    return `已收到你的點歌訊息：${songName}`;
-  }
-  return `點歌失敗 :P`;
-}
-
-async function getSongHandler(songName) {
-  const result = await getSong(songName);
-  return result;
-}
-
 module.exports = commands;

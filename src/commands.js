@@ -8,7 +8,7 @@ const commands = {
   "!bgm":
     "Background Music Made by Hunter Milo. > https://youtu.be/ewywwZe7cDI?si=HP1qpQicjPB2djN_",
   "!開台":
-    "幾乎天天都會小開一下，平日時段看我下班時間，假日大概都是中午開台除非我睡死 # 佛系開台！如果有請假會在我的 DC 群告知 ~",
+    "會開的時候會開 PepoPopcorn",
   "!ffz":
     "在線上應用程式插件下載 FrankerFaceZ：https://chrome.google.com/webstore/detail/frankerfacez/fadndhdgpmmaapbmfcknlfgcflmmmieb?hl=zh-TW，進 FFZ 設定 Add-Ons 把 7tv 打開就能看到啦！",
   "?": "shushu23What",
